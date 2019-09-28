@@ -429,7 +429,7 @@ Reward = (IV * RemainingInNetworkActor) / TotalIssuance
 `IV` is the initial value, and is set to:
 
 ```
-IV = 153856870367821447423 attoFIL // 153.85 FIL
+IV = 153856861913558700202 attoFIL // 153.85 FIL
 ```
 
 IV was derived from:
@@ -437,7 +437,7 @@ IV was derived from:
 // Given one block every 30 seconds, this is how many blocks are in six years
 HalvingPeriodBlocks = 6 * 365 * 24 * 60 * 2 = 6,307,200 blocks
 λ = ln(2) / HalvingPeriodBlocks
-IV = λ * TotalIssuance // Converted to attoFIL (10e18)
+IV = TotalIssuance * (1-e^(-λ)) // Converted to attoFIL (10e18)
 ```
 
 Note: Due to jitter in EC, and the gregorian calendar, there may be some error in the issuance schedule over time. This is expected to be small enough that it's not worth correcting for. Additionally, since the payout mechanism is transferring from the network account to the miner, there is no risk of minting *too much* FIL.
